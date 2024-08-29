@@ -1,0 +1,33 @@
+Riccardo Cherchi, matricola: 5798883
+Domanda: converti nel formato decimale il numero 10000000 00000000 00000000 00000001
+Risposta: nella seguente domanda viene chiesto di convertire un numero in formato decimale, mancano pero delle informazioni sul numero da convertire, per prima cosa manca la base del numero, nonostante il i numeri usati e la formatazzione usta suggeriscono un sistema numerico binario, quindi un numeri in base due, non se ne può essere certi, dato cio, il numero può essere rappresentato in base binaria ma anche in base decimale, ottale, esadecimale. ecc... 
+
+Oltre alla base del numero da convertire non è stato specficato il metodo di conversione del numero stesso, quale esso sia un numero in base 2, complemento a 2, convertito con lo standard IEEE-754 ecc...
+La conversione piu semplice di questo numero è quella di non converirlo, data la bae ignota assumendo il numero da convertire come numero in base 10 la conversione in formato decimale resta invariata quindi il numero 10000000 00000000 00000000 00000001 rimarra invariato.
+
+Sucessivamente supponendo il numero da convertire il base binaria quindi in base 2 andiamo ad applicare una conversione in formato decimale. Notiamo che il numero:
+10000000 00000000 00000000 00000001 e' composto da tutti 0 tranne la prima e l'ultima cifra, questo ci suggerisce che il numero sara un numero dispari piuttosto elevato, eseguendo la conversione l'operazione da fare sara: 2^31 + 2^0 = 2.147.483.649. Mantenendo le stesse assunzioni sulla base calcoliamo lo stesso numero in complemento a 2, quindi rappresentando anche i numeri negativi e non solo quelli positvi come in precedenza.
+
+Per passare da un numero binario convertito in complemento a 2 a un numero decimale, devo eseguire il complemento del numero in ordine inverso, per prima cosa passero dal complemento a 2 al complemento a 1 sottraendo 1 al numero per poi convertirlo in codifica binaria invertendo gli 0 e gli 1 (operazione di negazione) e in fine in decimale
+10000000 00000000 00000000 00000001
+								- 1 =
+10000000 00000000 00000000 00000000 = 
+01111111 11111111 11111111 11111111 = 2^30 + .... + 2^0 = -2.147.483.647 (aggiungo il - perchè il numero più significativo prima della conversione era un 1)
+
+In fine la conversione da binario a numero con virgola mobile in base 10 (standard IEEE-754).
+10000000 00000000 00000000 00000001 =
+1 -> segno
+00000000 -> esponente 
+00000000000000000000001 -> mantissa
+
+Dati i seguenti dati sul seguente numero sappiamo che:
+il segno è -
+l'esponente è pari a 0
+la mantissa è parti a 1
+il calcolo risultato sarà: −1*2^−126*1.0×2^−23 cioè un numero denormalizzato negativo con la virgola parti a -1.401298464324817e-45
+
+Successiavemente agli sviluppi con base binaria, passiamo allo sviluppo dei numeri con base ottale ed esadecimale.
+
+In base ottale il numero 10000000 00000000 00000000 00000001 viene convertito in base decimale come 8^31 + 8^0 = 9.903.520.314.283.042.199.192.993.792 + 1 = 9.903.520.314.283.042.199.192.993.793.
+
+In base esadeciale il numero 10000000 00000000 00000000 00000001 viene convertito in base decimale come 16^31 + 16^0 = 21.267.647.932.558.653.966.460.912.964.485.513.216 + 1 = 21.267.647.932.558.653.966.460.912.964.485.513.217.
